@@ -3,10 +3,14 @@
 #include <iostream>
 
 Tuit::Tuit(){
-
+	//Inicializacion de los usuarios en el tuit y los tuits anterior y siguientes a este
 	primerUsuario = 0;
 
 	ultimoUsuario= 0;
+
+	tuitAnterior= 0;
+
+	tuitSiguiente= 0;
 }
 
 Tuit::~Tuit(){
@@ -36,6 +40,8 @@ Tuit & Tuit::pushFront(string nombre){
 	}
 
 	primerUsuario= nuevoUsuario;
+
+	return *this;
 }
 
 Tuit & Tuit::pushBack(string nombre){
@@ -49,6 +55,8 @@ Tuit & Tuit::pushBack(string nombre){
 	}
 
 	ultimoUsuario= nuevoUsuario;
+
+	return *this;
 }
 
 int Tuit::buscar(string nombre){
