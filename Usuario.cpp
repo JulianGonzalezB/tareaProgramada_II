@@ -81,6 +81,11 @@ ostream & Usuario::imprimirBFs(ostream & salida){
 void Usuario::calcularDice(){
 }
 
+string Usuario::getNombre(){
+
+	return nombre;
+}
+
 Usuario::Interaccion::Interaccion(Usuario * usuario){
 
 	mencionado= usuario;

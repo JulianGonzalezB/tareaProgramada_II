@@ -32,6 +32,7 @@ class Usuario{
 		~Usuario();
 		agregarInterac(Usuario *);
 		ostream & imprimirBFs(ostream &);
+		string getNombre();
 
 };
 #endif
