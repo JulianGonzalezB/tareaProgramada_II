@@ -1,4 +1,5 @@
 #include "Tuit.h"
+#include "Usuario.h"
 #include <string>
 #include <iostream>
 
@@ -84,24 +85,6 @@ int Tuit::buscar(string nombre){
 	}
 
 	return posicion;
-}
-
-Tuit::Usuario::Usuario(string nombre){
-
-	this->nombre= nombre;
-	this->anterior= 0;
-	this->siguiente= 0;
-}
-
-Tuit::Usuario::~Usuario(){
-	
-	//Si hay un siguiente
-	if(siguiente){
-		//Mata al siguiente
-		delete siguiente;
-	}
-	//Se mata a si mismo
-	delete *this;
 }
 
 string Tuit::getNombre(int posicion){

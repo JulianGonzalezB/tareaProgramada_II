@@ -1,5 +1,6 @@
 #ifndef _TUIT_
 #define _TUIT_
+#include "Usuario.h"
 #include <string>
 class Tuit{
 
@@ -9,16 +10,6 @@ class Tuit{
 		Usuario * primerUsuario;
 		Usuario * ultimoUsuario;
 		int numeroDeUsuarios;
-
-		class Usuario{
-		
-			public:
-				string nombre;
-				Usuario * anterior;
-				Usuario * siguiente;
-				Usuario(string);
-				~Usuario();
-		}
 	
 	public:
 		//Para construir la lista de tuits
