@@ -19,9 +19,38 @@ ListaUsuarios::~ListaUsuarios(){
 	}
 }
 
+/**
+ *@param nombre es un string con el nombre del usuario a buscar
+ *@return 0 si el usuario no se encuentra en la lista.
+ */
 Usuario * ListaUsuarios::getUsuario(string nombre){
 
-	return primero;//Cambiar esto
+	Usuario * actual = primero;
+
+	int encontrado =0;
+
+	if(primero){
+	
+		//Mientras no haya sido encontrado y haya un siguiente
+		while(!encontrado && actual->siguiente){
+			//Si no son diferentes
+			if(!actual->getNombre().compare(nombre)){
+			
+				encontrado= 1;
+			}
+			else{
+			
+				actual= actual->siguiente
+			}
+		}
+
+		if(!encontrado){
+		
+			actual=0;
+		}
+	}
+
+	return actual;
 }
 
 string ListaUsuarios::getNombre(int posicion){
