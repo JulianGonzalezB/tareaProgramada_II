@@ -9,8 +9,8 @@ class ListaUsuarios{
 	private:
 		Usuario * primero;
 		Usuario * ultimo;
-		void pushBack(Usuario *);
-		void comparar(string);
+		void pushBack(Usuario *);//Agrega al usuario nuevo al final de la lista
+		void comparar(string);//Busca si el nuevo usuario ya estaba o no o si es el primero
 		int usuarios;//Numero de usuarios en la lista
 	
 	public:

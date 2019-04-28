@@ -9,17 +9,18 @@ class Usuario{
 
 	private:
 		string nombre;
-		Usuario * siguiente;
 		double cardinalidad;
 		ListaAmigos * listaAmigos;
 	
 	public:
-		Usuario();
+		Usuario(string);
 		~Usuario();
-		void agregarAmigo(string);
-		ostream & imprimir(ostream &);
-		string getNombre();
-		double getCardinalidad();
+		void agregarAmigo(string, double);//Recibe el nombre y el coeficiente de Dice
+		ostream & imprimir(ostream &);//Se imprime el usuario, su lista y el siguiente usuario si existe
+		string getNombre();//Devuelve el nombre del usuario
+		double getCardinalidad();//Devuelve la cardinalidad del usuario que es un double para facilitar el calculo
+		void aumentarCardinalidad();
+		Usuario * siguiente;//Siguiente usuario
 
 };
 #endif

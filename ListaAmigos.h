@@ -11,8 +11,8 @@ class ListaAmigos{
 	private:
 		Amigo * primero;
 		Amigo * ultimo;
-		void pushBack(Amigo *);
-		void comparar(string);//Compara por nombre
+		void pushBack(Amigo *);//Agrega al final de la lista
+		void comparar(string, double dice);//Compara por nombre
 
 		class Amigo{
 		
@@ -20,7 +20,7 @@ class ListaAmigos{
 				string nombre;
 				Amigo * siguiente;
 				double dice;
-				Amigo(string, double);
+				Amigo(string, double);//Solo se agrega si ya el dice esta calculado
 				~Amigo();
 				ostream & imprimir(ostream &);
 		};
