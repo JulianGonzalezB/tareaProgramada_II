@@ -17,11 +17,9 @@ Controlador::~Controlador(){
 		delete listaUsuarios;//Si existe la lista de relaciones existe la de usuarios
 		delete listaRelaciones;
 	}
-
-	delete *this;
 }
 
-ostream & Controlador::imprimir(ostream salida){
+ostream & Controlador::imprimir(ostream & salida){
 
 	listaUsuarios->imprimir(salida);
 

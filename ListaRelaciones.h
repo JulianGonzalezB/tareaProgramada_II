@@ -2,13 +2,14 @@
 #define _LISTAREL_
 #include "Relacion.h"
 #include<string>
+using namespace std;
 
 class ListaRelaciones{
 
 	private:
 		Relacion * primera;
 		Relacion * ultima;
-		void puschBack(Relacion *);
+		void pushBack(Relacion *);
 		void comparar(string, string);
 
 	public:

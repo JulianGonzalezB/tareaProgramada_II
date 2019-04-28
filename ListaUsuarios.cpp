@@ -17,8 +17,6 @@ ListaUsuarios::~ListaUsuarios(){
 	
 		delete primero;
 	}
-
-	delete *this;
 }
 
 Usuario * ListaUsuarios::getUsuario(string nombre){

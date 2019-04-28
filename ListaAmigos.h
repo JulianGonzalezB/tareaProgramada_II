@@ -2,6 +2,7 @@
 #define _LISTAAMIGOS_
 #include<string>
 #include<iostream>
+using namespace std;
 
 class ListaAmigos{
 
@@ -10,7 +11,7 @@ class ListaAmigos{
 	private:
 		Amigo * primero;
 		Amigo * ultimo;
-		void pushBach(Amigo *);
+		void pushBack(Amigo *);
 		void comparar(string);//Compara por nombre
 
 		class Amigo{

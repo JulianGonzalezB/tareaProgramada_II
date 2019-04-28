@@ -15,8 +15,6 @@ ListaRelaciones::~ListaRelaciones(){
 	
 		delete primera;
 	}
-
-	delete *this;
 }
 
 void ListaRelaciones::pushBack(Relacion * nuevaRelacion){

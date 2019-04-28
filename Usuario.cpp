@@ -20,8 +20,6 @@ Usuario::~Usuario(){
 	}
 
 	delete listaAmigos;
-
-	delete *this;
 }
 
 void Usuario::agregarAmigo(string nombre){
@@ -31,7 +29,7 @@ void Usuario::agregarAmigo(string nombre){
 ostream & Usuario::imprimir(ostream & salida){
 
 	salida << this->nombre << endl;
-	salida << "Numero de amigos: " << listaAmigos->numeroAmigos << endl;
+	salida << "Numero de amigos: " << listaAmigos->numAmigos << endl;
 	listaAmigos->imprimir(salida);
 
 	if(siguiente){

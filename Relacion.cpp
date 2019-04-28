@@ -15,8 +15,6 @@ Relacion::~Relacion(){
 	
 		delete siguiente;
 	}
-
-	delete *this;
 }
 
 void Relacion::calcularDice(){

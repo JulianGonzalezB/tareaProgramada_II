@@ -16,8 +16,6 @@ ListaAmigos::~ListaAmigos(){
 	
 		delete primero;
 	}
-
-	delete *this;
 }
 
 void ListaAmigos::pushBack(Amigo * nuevoAmigo){
@@ -56,8 +54,6 @@ ListaAmigos::Amigo::~Amigo(){
 	
 		delete siguiente;
 	}
-
-	delete *this;
 }
 
 ostream & ListaAmigos::Amigo::imprimir(ostream & salida){

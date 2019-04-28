@@ -1,6 +1,7 @@
 #ifndef _RELACION_
 #define _RELACION_
 #include<string>
+using namespace std;
 
 class Relacion{
 

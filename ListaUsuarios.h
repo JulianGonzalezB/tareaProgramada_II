@@ -2,6 +2,7 @@
 #define _LISTAU_
 #include "Usuario.h"
 #include<string>
+using namespace std;
 
 class ListaUsuarios{
 

@@ -3,12 +3,13 @@
 #include "ListaAmigos.h"
 #include<string>
 #include<iostream>
+using namespace std;
 
 class Usuario{
 
 	private:
 		string nombre;
-		Usuario * siguiente
+		Usuario * siguiente;
 		double cardinalidad;
 		ListaAmigos * listaAmigos;
 	
