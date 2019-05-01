@@ -1,21 +1,26 @@
 #ifndef _BUSCADOR_
 #define _BUSCADOR_
-#include<vector>
-#include<string>
+#define LARGO_ENTRADA 40
 #include<iostream>
+#include<fstream>
+#include<cstring>
+#include<string>
 using namespace std;
 
 class Buscador{
 
 	private:
-		vector<string> entrada;
-		string usuario;
+		char usuario[LARGO_ENTRADA];
+		char numero[LARGO_ENTRADA];
+		string mensajeError;
 		int numAmigos;
-		ifstream * relaciones;
+		int revisarEntrada(char []);
 		void buscar();
+		int buscarUsuario(char []);
+		void imprimirResultado(ifstream &);
 	
 	public:
-		Buscador(string);
+		Buscador(char []);
 		~Buscador();
 };
 #endif
