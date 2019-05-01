@@ -204,18 +204,23 @@ void Buscador::imprimirResultado(ifstream & relaciones){
 				else{
 				
 					arrobaEncontrado= 1;
-					ultimaPosicion= letra - largoEtiquetaAmigos;
+					ultimaPosicion= letra - largoEtiquetaAmigos + 1;
 				}
 			}
 		}
 
 		cout << endl;
 	}
+	else if(numAmigos <= 0){
+	
+		//Pide un numero invalido de amigos
+		cout << "El numero de amigos debe ser mayor a 0" << endl;
+	}
 	else{
 	
 		//Si el numero solicitado de amigos es mayor al que tiene el usuario
 		//Se advierte al usuario del programa
-		cout << "El usuario " << usuario << " Tiene menos de " << numAmigos << " amigos. Se presentan a continuacion todos los amigos seguidos de sus coeficientes de Dice:"<< endl;
+		cout << "El usuario " << usuario << " Tiene menos de " << numAmigos << " amigos. Se presentan a continuacion todos los amigos:"<< endl;
 
 		for(int letra= largoEtiquetaAmigos; letra < strlen(linea); ++letra){
 		
