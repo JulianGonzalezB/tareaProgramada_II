@@ -5,18 +5,12 @@
 #define NUMERO_ETIQUETAS 4
 using namespace std;
 
-Buscador::Buscador(char entrada []){
+Buscador::Buscador(char entradaOriginal []){
 
 	mensajeError= "Error: Formato invalido. Debe ingresar un numero de mejores amigos";
-	//Copia el mensaje
-	char copiaEntrada[strlen(entrada)];
 
-	for(int letra= 0; letra < strlen(entrada); ++letra){
-	
-		copiaEntrada[letra]= entrada[letra];
-	}
 	//Revisa la entrada con la copia
-	if(revisarEntrada(copiaEntrada)){
+	if(revisarEntrada(entradaOriginal)){
 	
 		buscar();
 	}
@@ -25,12 +19,17 @@ Buscador::Buscador(char entrada []){
 Buscador::~Buscador(){
 }
 
+/**
+ *Metodo para verificar si la entrada introducida tiene el formato correcto
+ *@param entrada es un arreglo de chars que contiene la entrada
+ *@return entradaValida es 1 si la consulta tiene el formato correcto y 0 si no
+ */
 int Buscador::revisarEntrada(char entrada []){
-
 	int entradaValida= 0;
 	int espacioEncontrado= 0;
 	int errorNumeroParams= 0;
 	int contadorDigits= 0;
+
         //Copia como nombre de usuario hasta encontrar un espacio en blanco y luego guarda el numero
         for(int letra= 0; letra < strlen(entrada) && !errorNumeroParams; ++letra){
 		//Si el caracter no es un espacio y el espacio no ha sido encontrado
@@ -60,9 +59,9 @@ int Buscador::revisarEntrada(char entrada []){
                 //Determinar si ingreso un numero
                 int errorNoNumero= 0;
 
-                for(int letra= 0; letra < strlen(numero) && !errorNoNumero; ++letra){
+                for(int letra= 0; letra < contadorDigits && !errorNoNumero; ++letra){
                         //Si no es un digito
-                        if(!isdigit(numero[letra]) && numero[letra] != '\0'){
+                        if(!isdigit(numero[letra])){
                                 //No se ingreso un numero sino algo mas
                                 errorNoNumero= 1;
                         }
@@ -80,13 +79,15 @@ int Buscador::revisarEntrada(char entrada []){
 		}
         }
         else{
-                cout << mensajeError << endl;
                 cout << endl;
         }
 
 	return entradaValida;
 }
 
+/**
+ *Metodo para buscar al usuario consultado dentro del documento generado
+ */
 void Buscador::buscar(){
 	//Abre el archivo de relaciones
 	ifstream relaciones((char*)"Relaciones.txt");
@@ -121,10 +122,14 @@ void Buscador::buscar(){
 	if(!usuarioEncontrado){
 	
 		cout << "Usuario no encontrado" << endl;
-		cout << endl;
 	}
 }
 
+/**
+ *Metodo para buscar al usuario consultado en el documento
+ *@param linea es un arreglo de chars que contiene una linea de texto del documento de relaciones generado
+ *@return encontrado es 1 si el usuario fue encontrado y 0 de otra forma
+ */
 int Buscador::buscarUsuario(char linea[]){
 
 	int encontrado= 0;
@@ -154,6 +159,10 @@ int Buscador::buscarUsuario(char linea[]){
 	return encontrado;
 }
 
+/**
+ *Metodo para imprimir lo solicitado por el usuario
+ *@param relaciones es una referencia a un objeto ifstream del cual se lee
+ */
 void Buscador::imprimirResultado(ifstream & relaciones){
 	//Largo de las etiquetas para no leerlas
 	int largoEtiquetaNumAmigos= 18;
@@ -171,7 +180,7 @@ void Buscador::imprimirResultado(ifstream & relaciones){
 	for(int etiqueta= 0; etiqueta < NUMERO_ETIQUETAS - 2; ++etiqueta){
 		//Si la etiqueta es el numero de amigos
 		if(etiqueta == 0){
-		
+			//Obtiene el numero de amigos para hacer la comparacion de numeros
 			for(int letra= largoEtiquetaNumAmigos; letra < strlen(linea); ++letra){
 			
 				amigosNum[letra - largoEtiquetaNumAmigos]= linea[letra];
@@ -186,15 +195,15 @@ void Buscador::imprimirResultado(ifstream & relaciones){
 
 	if(numAmigos <= numeroAmigos){
 		
-		cout << "Los " << numAmigos << " mejores amigos de " << usuario << " son: ";
+		cout << "Los " << numAmigos << " mejores amigos de " << usuario << " son: " << endl;;
 
 		int ultimaPosicion= 0;
 		int arrobaEncontrado= 0;
-		//Imprimir los n amigos
+		//Imprimir los n amigos separando por arrobas
 		for(int amigo= 0; amigo < numAmigos; ++amigo){
 			
 			arrobaEncontrado= 0;
-
+			//Imprime todas las letras de un amigo
 			for(int letra= largoEtiquetaAmigos + ultimaPosicion; !arrobaEncontrado; ++letra){
 			
 				if(linea[letra] != '@'){
@@ -202,7 +211,7 @@ void Buscador::imprimirResultado(ifstream & relaciones){
 					cout << linea[letra];
 				}
 				else{
-				
+					//Se detiene cuando encuentra un arroba
 					arrobaEncontrado= 1;
 					ultimaPosicion= letra - largoEtiquetaAmigos + 1;
 				}
@@ -221,7 +230,7 @@ void Buscador::imprimirResultado(ifstream & relaciones){
 		//Si el numero solicitado de amigos es mayor al que tiene el usuario
 		//Se advierte al usuario del programa
 		cout << "El usuario " << usuario << " Tiene menos de " << numAmigos << " amigos. Se presentan a continuacion todos los amigos:"<< endl;
-
+		//Imprime todos los amigos. No imprime los arrobas
 		for(int letra= largoEtiquetaAmigos; letra < strlen(linea); ++letra){
 		
 			if(linea[letra] != '@'){

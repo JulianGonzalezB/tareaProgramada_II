@@ -1,0 +1,32 @@
+Nombre: @hola
+Numero de amigos: 5
+Cardinalidad: 3
+Amigos: @lulu @pepe @lulu @wwww @eeeeee 
+Nombre: @pepe
+Numero de amigos: 4
+Cardinalidad: 3
+Amigos: @lulu @hola @pao9839823962 @lulu 
+Nombre: @lulu
+Numero de amigos: 4
+Cardinalidad: 3
+Amigos: @pepe @hola @pao9839823962 @lulu 
+Nombre: @wwww
+Numero de amigos: 3
+Cardinalidad: 1
+Amigos: @eeeeee @lulu @hola 
+Nombre: @eeeeee
+Numero de amigos: 4
+Cardinalidad: 2
+Amigos: @wwww @wwww @lulu @hola 
+Nombre: @lulu
+Numero de amigos: 5
+Cardinalidad: 2
+Amigos: @hola @wwww @eeeeee @pepe @lulu 
+Nombre: @wwww
+Numero de amigos: 1
+Cardinalidad: 1
+Amigos: @eeeeee 
+Nombre: @pao9839823962
+Numero de amigos: 2
+Cardinalidad: 1
+Amigos: @pepe @lulu 
